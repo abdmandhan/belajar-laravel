@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\User;
+use App\Models\Umkm;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +16,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $umkm = Umkm::all();
+    // return $umkm;
+    return view('welcome',['umkm'=>$umkm]);
 });
 
 Route::get('/dashboard', function () {
